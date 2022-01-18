@@ -1,0 +1,28 @@
+{
+  "name": "api_employee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItaloDavidb/API_EMPLOYEE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItaloDavidb/API_EMPLOYEE/issues"
+  },
+  "homepage": "https://github.com/ItaloDavidb/API_EMPLOYEE#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "nodemon": "^2.0.15"
+  }
+}
