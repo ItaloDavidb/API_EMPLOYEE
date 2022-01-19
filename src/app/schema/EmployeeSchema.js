@@ -9,8 +9,8 @@ const EmployeeSchema = mongoose.Schema({
   name: String,
   cpf: String,
   office:{
-      type:String,
-      enum:['gerente','vendedor','caixa']
+    type:String,
+    enum:['gerente','vendedor','caixa']
   },
   birthday:Date,
   situation: {
