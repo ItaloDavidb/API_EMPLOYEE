@@ -4,7 +4,8 @@ const uuid = require('node-uuid');
 const EmployeeSchema = mongoose.Schema({
   employee_id: { 
     type: String, 
-    default: uuid.v1 
+    default: uuid.v1,
+    index:true 
   },
   name: String,
   cpf: String,
@@ -25,7 +26,8 @@ const EmployeeSchema = mongoose.Schema({
   ,
   updatedAt:{
     type:Date,default:Date.now
-  }
+  },
+  
 
 });
 
