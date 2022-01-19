@@ -15,7 +15,7 @@ class EmployeeRepository {
 
   async update(id, payload) {
     await EmployeeSchema.updateOne({ employee_id: id }, payload);
-    return EmployeeSchema.findOne({ employee_id: id });
+    return EmployeeSchema.findOne({ employee_id: id }, '-_id employee_id name cpf office birthday situation');
   }
 
   async delete(id) {
