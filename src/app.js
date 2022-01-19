@@ -1,14 +1,19 @@
 const express = require('express');
 const routes = require('./routes');
+require('./infra/database/mongo');
 
-const app = express();
-
-routes(app);
-
-let port = process.env.port || 3000;
-
-app.listen(port, () => {
-  console.log(`API esta rodando na port '${port}'`);
-});
-
-module.exports = app;
+class App {
+  constructor() {
+    this.server = express();
+    this.middleware();
+    this.routes();
+  }
+  middleware() {
+    this.server.use(express.json());
+    this.server.use(express.urlencoded({ extended: true }));
+  }
+  routes() {
+    this.server.use(routes);
+  }
+}
+module.exports = new App().server;
