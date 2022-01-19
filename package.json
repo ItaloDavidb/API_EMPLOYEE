@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/index.js",
     "lint": "eslint . --fix"
-    
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,7 @@
   "homepage": "https://github.com/ItaloDavidb/API_EMPLOYEE#readme",
   "dependencies": {
     "express": "^4.17.2",
+    "joi": "^17.5.0",
     "mongoose": "^6.1.7"
   },
   "devDependencies": {

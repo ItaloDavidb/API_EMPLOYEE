@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UserSchema = mongoose.Schema({
+const EmployeeSchema = mongoose.Schema({
   name: String,
   cpf: String,
   office: String,
@@ -12,14 +12,12 @@ const UserSchema = mongoose.Schema({
 },
 createdAt:{
     type:Date,default:Date.now
-
 },
-
 updatedAt:{
     type:Date,default:Date.now
 }
 })
 
-const User = mongoose.model('Employees', UserSchema);
+const Employee = mongoose.model('Employee', EmployeeSchema);
 
-module.exports = User;
+module.exports = Employee;
