@@ -16,6 +16,16 @@ class EmployeeController {
       });
     }
   }
+
+  async find(req,res){
+    try{
+      const reqBody = req.body
+      const data = await  EmployeeService.find(reqBody);
+      return res.status(201).json(data);
+    }catch(error){
+    return res.status(404).json(error);
+    }
+  }
 }
 
 module.exports = new EmployeeController;
