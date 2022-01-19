@@ -1,6 +1,10 @@
-const express = require('express');
+const { Router } = require('express');
+const employeeRouter = require('../routes/employee.router');
 
 
-module.exports = app => {
-  app.use(express.json());
+module.exports = server => {
+  server.use((req, res, next) => {
+    employeeRouter(server, new Router());
+    next();
+  });
 };

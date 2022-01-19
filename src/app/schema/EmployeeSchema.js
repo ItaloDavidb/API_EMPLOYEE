@@ -14,14 +14,17 @@ const EmployeeSchema = mongoose.Schema({
     type: String,
     enum : ['activate','deactivate'],
     default: 'activate'
-},
-createdAt:{
+  }
+  ,
+  createdAt:{
     type:Date,default:Date.now
-},
-updatedAt:{
+  }
+  ,
+  updatedAt:{
     type:Date,default:Date.now
-}
-})
+  }
+
+});
 
 const Employee = mongoose.model('Employee', EmployeeSchema);
 
