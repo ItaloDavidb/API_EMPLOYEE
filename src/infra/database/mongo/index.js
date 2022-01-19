@@ -6,7 +6,9 @@ class Database {
   }
 
   connect() {
-    return mongoose.connect('mongodb://127.0.0.1:27017/node').then(console.log('Conectado')).catch((err) => console.log(err));
+    return mongoose.connect(process.env.DB_PATHDB)
+      .then(console.log('Connected to DB'))
+      .catch((err) => console.log(err));
   }
 }
 
