@@ -8,7 +8,10 @@ const EmployeeSchema = mongoose.Schema({
   },
   name: String,
   cpf: String,
-  office: String,
+  office:{
+      type:String,
+      enum:['gerente','vendedor','caixa']
+  },
   birthday:Date,
   situation: {
     type: String,
