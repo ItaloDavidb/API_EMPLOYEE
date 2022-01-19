@@ -37,6 +37,41 @@ class EmployeeController {
       return res.status(404).json(error);
     }
   }
+
+  async update(req, res) {
+    const employeeId = req.params.employee_id;
+    const newData = req.body;
+    try {
+      const updatedEmployee = await EmployeeService.update(employeeId, newData);
+      res.status(200).json(updatedEmployee);
+    } catch (error) {
+      res.status(400).json({
+        'message': 'bad request',
+        'details':[
+          {
+            'message':error,
+          }
+        ]
+      });
+    }
+  }
+
+  async delete(req, res) {
+    const employeeId = req.params.employee_id;
+    try{
+      await EmployeeService.delete(employeeId);
+      res.status(204).end();
+    } catch (error) {
+      return res.status(400).json({
+        'message': 'bad request',
+        'details':[
+          {
+            'message':error,
+          }
+        ]
+      });
+    }
+  }
 }
 
 module.exports = new EmployeeController;

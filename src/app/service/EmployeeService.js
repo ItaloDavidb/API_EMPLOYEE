@@ -17,6 +17,15 @@ class EmployeeService {
     }
     return data;
   }
+
+  async update(id, payload) {
+    const data = await EmployeeRepository.update(id, payload);
+    return data;
+  }
+
+  async delete(id) {
+    return EmployeeRepository.delete(id);
+  }
 }
 
 module.exports = new EmployeeService();
