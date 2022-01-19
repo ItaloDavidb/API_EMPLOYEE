@@ -30,7 +30,9 @@ class EmployeeController {
     try{
       const reqBody = req.body;
       const data = await  EmployeeService.find(reqBody);
-      return res.status(201).json(data);
+      return res.status(201).json({
+        'employee':data
+      });
     }catch(error){
       return res.status(404).json(error);
     }
