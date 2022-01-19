@@ -14,7 +14,7 @@ class App {
   }
 
   routes() {
-    router(this.server)
+    router(this.server);
   }
 }
 module.exports = new App().server;

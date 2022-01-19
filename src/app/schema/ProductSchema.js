@@ -5,10 +5,10 @@ const ProductSchema = mongoose.Schema({
   category: String,
   price: Number,
   employee_id:{
-      type:String,
-      ref:"Employee"
-    },
-})
+    type:String,
+    ref:'Employee'
+  },
+});
 
 const Product = mongoose.model('Product', ProductSchema);
 module.exports = Product;
