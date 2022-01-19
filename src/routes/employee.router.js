@@ -1,3 +1,3 @@
-const EmployeeController = require('../app/controller/EmployeeController');
+//const EmployeeController = require('../app/controller/EmployeeController');
 
-EmployeeController();
+//EmployeeController();
