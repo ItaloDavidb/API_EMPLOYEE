@@ -28,8 +28,9 @@ class EmployeeController {
 
   async find(req,res){
     try{
-      const reqBody = req.body;
-      const data = await  EmployeeService.find(reqBody);
+      const name1 = req.query.name
+      const office1 = req.query.office
+      const data = await  EmployeeService.find(name1,office1);
       return res.status(201).json({
         'employee':data
       });
