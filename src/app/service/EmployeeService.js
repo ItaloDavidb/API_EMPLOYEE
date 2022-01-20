@@ -1,10 +1,11 @@
 const EmployeeRepository = require('../repository/EmployeeRepository');
+const moment = require('moment');
 
 class EmployeeService {
   async create(payload) {
     const data = await EmployeeRepository.create(payload);
     const cpf = this.formatCPF(data.cpf);
-    const employee = Object.assign(data, { cpf: cpf });
+    const employee = Object.assign(data, { cpf: cpf }, { birthday: birthday });
     return employee;
   }
 
@@ -58,7 +59,7 @@ class EmployeeService {
   }
 
   formatCPF(cpf) {
-    const cpfFormatted = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    const cpfFormatted = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     return cpfFormatted;
   }
 }

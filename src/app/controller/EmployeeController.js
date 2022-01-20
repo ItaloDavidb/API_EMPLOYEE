@@ -31,8 +31,8 @@ class EmployeeController {
       const name1 = req.query.name;
       const office1 = req.query.office;
       const data = await  EmployeeService.find(name1,office1);
-      return res.status(201).json({
-        'employee':data
+      return res.status(200).json({
+        'employees': data
       });
     }catch(error){
       return res.status(404).json(error);
