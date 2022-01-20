@@ -19,7 +19,7 @@ class EmployeeController {
         'message': 'bad request',
         'details':[
           {
-            'message':error,
+            'message':error.message,
           }
         ]
       });
@@ -28,8 +28,8 @@ class EmployeeController {
 
   async find(req,res){
     try{
-      const name1 = req.query.name
-      const office1 = req.query.office
+      const name1 = req.query.name;
+      const office1 = req.query.office;
       const data = await  EmployeeService.find(name1,office1);
       return res.status(201).json({
         'employee':data
@@ -50,7 +50,7 @@ class EmployeeController {
         'message': 'bad request',
         'details':[
           {
-            'message':error,
+            'message':error.message,
           }
         ]
       });
@@ -67,7 +67,7 @@ class EmployeeController {
         'message': 'bad request',
         'details':[
           {
-            'message':error,
+            'message':error.message,
           }
         ]
       });
