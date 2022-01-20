@@ -29,9 +29,7 @@ class ProductController {
       const name1 = req.query.name;
       const category1 = req.query.category;
       const data = await ProductService.find(name1,category1);
-      return res.status(201).json({
-        'Product': data
-      });
+      return res.status(201).json(data);
     } catch (error) {
       return res.status(404).json(error);
     }

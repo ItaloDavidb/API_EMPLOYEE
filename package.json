@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ItaloDavidb/API_EMPLOYEE#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "joi": "^17.5.0",
