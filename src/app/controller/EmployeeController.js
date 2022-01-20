@@ -43,6 +43,10 @@ class EmployeeController {
     const employeeId = req.params.employee_id;
     const newData = req.body;
     try {
+      const employee = await EmployeeService.findId(employeeId);
+      if(employee === null) {
+        res.status(404).json({ error: 'ID not found' });
+      }
       const updatedEmployee = await EmployeeService.update(employeeId, newData);
       res.status(200).json(updatedEmployee);
     } catch (error) {
@@ -60,6 +64,10 @@ class EmployeeController {
   async delete(req, res) {
     const employeeId = req.params.employee_id;
     try{
+      const employee = await EmployeeService.findId(employeeId);
+      if(employee === null) {
+        res.status(404).json({ error: 'ID not found' });
+      }
       await EmployeeService.delete(employeeId);
       res.status(204).end();
     } catch (error) {

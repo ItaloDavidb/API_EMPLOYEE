@@ -48,6 +48,10 @@ class EmployeeService {
   async delete(id) {
     return EmployeeRepository.delete(id);
   }
+
+  async findId(id) {
+    return EmployeeRepository.findId(id);
+  }
 }
 
 module.exports = new EmployeeService();

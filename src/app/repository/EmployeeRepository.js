@@ -21,5 +21,9 @@ class EmployeeRepository {
   async delete(id) {
     return EmployeeSchema.deleteOne({ employee_id: id });
   }
+
+  async findId(id) {
+    return EmployeeSchema.findOne({ employee_id: id });
+  }
 }
 module.exports = new EmployeeRepository();
