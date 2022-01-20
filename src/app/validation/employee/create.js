@@ -6,7 +6,7 @@ module.exports = async (req,res,next) =>{
       name: Joi.string().required(),
       cpf: Joi.string().pattern(/^[0-9]+$/, 'numbers').length(11).required(),
       office: Joi.string().required().valid('gerente','vendedor','caixa'),
-      birthday: Joi.date().max('now')
+      birthday: Joi.date().max('now').greater('1-1-1900')
     });
     const {error} = await employeeschema.validate(req.body,{abortEarl:true});
     if(error) throw error;
