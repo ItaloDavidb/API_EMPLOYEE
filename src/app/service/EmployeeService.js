@@ -7,36 +7,36 @@ class EmployeeService {
   }
 
   async find(names,offices){
-    let data = {}
-    if(typeof names === "undefined" && offices === "undefined"){
-       data = await EmployeeRepository.findall();
+    let data = {};
+    if(typeof names === 'undefined' && offices === 'undefined'){
+      data = await EmployeeRepository.findall();
     }else{
 
-      const ObjName = this.validateName(names)
-      const ObjOffice = this.validateOffice(offices)
-      const obj = Object.assign({},ObjName,ObjOffice)
+      const ObjName = this.validateName(names);
+      const ObjOffice = this.validateOffice(offices);
+      const obj = Object.assign({},ObjName,ObjOffice);
       data = await EmployeeRepository.find(obj);
     }
     
-    return data
+    return data;
   }
   validateOffice(offices){
-      if(typeof offices === "undefined"){
-        const ObjOffice = {}
-        return ObjOffice
-      }else{
-        const ObjOffice2 = {office:offices}
-        return ObjOffice2
-      }
+    if(typeof offices === 'undefined'){
+      const ObjOffice = {};
+      return ObjOffice;
+    }else{
+      const ObjOffice2 = {office:offices};
+      return ObjOffice2;
+    }
 
   }
   validateName(names){
-    if(typeof names === "undefined"){
-      const ObjName = {}
-      return ObjName
+    if(typeof names === 'undefined'){
+      const ObjName = {};
+      return ObjName;
     }else{
-      const ObjName2 = {name: { $regex: '.*' + names + '.*' } }
-      return ObjName2
+      const ObjName2 = {name: { $regex: '.*' + names + '.*' } };
+      return ObjName2;
     }
   }
 
