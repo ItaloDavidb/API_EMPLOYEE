@@ -3,7 +3,7 @@ const Joi = require('joi');
 module.exports = async (req,res,next) =>{
   try {
     const employeeschema = Joi.object({
-      name: Joi.string().required(),
+      name: Joi.string().required().trim(),
       cpf: Joi.string().pattern(/^[0-9]+$/, 'numbers').length(11).required(),
       office: Joi.string().required().valid('gerente','vendedor','caixa'),
       birthday: Joi.date().max('now').greater('1-1-1900')

@@ -3,10 +3,10 @@ const Joi = require('joi');
 module.exports = async (req,res,next) =>{
   try {
     const productschema = Joi.object({
-      name: Joi.string().required(),
+      name: Joi.string().required().trim(),
       category:Joi.string().required().valid('eletronico'),
       price: Joi.number().required(),
-      employee_id: Joi.string().required().guid({version: 'uuidv4'})
+      employee_id: Joi.string().required().guid({version: 'uuidv1'})
     });
     const {error} = await productschema.validate(req.body,{abortEarl:true});
     if(error) throw error;

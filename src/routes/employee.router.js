@@ -1,5 +1,5 @@
 const EmployeeController = require('../app/controller/EmployeeController');
-const validation = require('../app/validation/employee/create');
+const validation = require('../app/validation/employee');
 
 module.exports = (server, routes, prefix = '/api/v1/employee') => {
   routes.post('/',validation,EmployeeController.create);
