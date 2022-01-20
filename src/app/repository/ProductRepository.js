@@ -9,6 +9,9 @@ class ProductRepository {
     return ProductSchema.find();
   }
 
+  async find(payload){
+    return ProductSchema.find(payload);
+  }
 
 }
 module.exports = new ProductRepository();
