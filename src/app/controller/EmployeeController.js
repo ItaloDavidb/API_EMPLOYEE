@@ -1,5 +1,7 @@
 const EmployeeService = require('../service/EmployeeService');
-
+// const uuid = require('uuid');
+//Salve galera resolvi a validation do delete lá 400 porém ao funcionar ele crasha o  
+//servidor então amh eu vejo isso quem tiver pegando pela manhâ ta la na linha 69
 class EmployeeController {
   async create(req, res) {
     try {
@@ -64,6 +66,10 @@ class EmployeeController {
   async delete(req, res) {
     const employeeId = req.params.employee_id;
     try{
+      // const validate = uuid.validate(employeeId);
+      // if(validate === false){
+      //   res.status(400).json({ error: 'ID not padronized' });
+      // }
       const employee = await EmployeeService.findId(employeeId);
       if(employee === null) {
         res.status(404).json({ error: 'ID not found' });

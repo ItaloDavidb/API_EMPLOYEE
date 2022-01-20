@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uuid = require('node-uuid');
+const uuid = require('uuid');
 
 const EmployeeSchema = mongoose.Schema({
   employee_id: { 
