@@ -4,7 +4,7 @@ const uuid = require('uuid');
 const EmployeeSchema = mongoose.Schema({
   employee_id: { 
     type: String, 
-    default: uuid.v1,
+    default: uuid.v4,
     index:true,
     mongoose:mongoose.ObjectId 
   },
