@@ -2,11 +2,12 @@
   "name": "api_employee",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/server.js",
-    "lint": "eslint . --fix"
+    "start": "node ./src/server.js",
+    "lint": "eslint . --fix",
+    "dev": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
