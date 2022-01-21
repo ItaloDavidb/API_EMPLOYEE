@@ -31,7 +31,14 @@ class ProductController {
       const data = await ProductService.find(name1,category1);
       return res.status(201).json(data);
     } catch (error) {
-      return res.status(404).json(error);
+      return res.status(404).json({
+        'message': 'bad request',
+        'details':[
+          {
+            'message':error.message,
+          }
+        ]
+      });
     }
   }
 

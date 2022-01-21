@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const InvalidBody = require('../../../erros/InvalidBody');
 
 module.exports = async (req,res,next) =>{
   try {
@@ -9,7 +10,7 @@ module.exports = async (req,res,next) =>{
       employee_id: Joi.string().required().guid({version: 'uuidv4'})
     });
     const {error} = await productschema.validate(req.body,{abortEarl:true});
-    if(error) throw error;
+    if(error) throw new InvalidBody(error);
     return next();
   } catch (error) {
     return res.status(400).json({

@@ -1,5 +1,6 @@
 const JoiImport = require('joi');
 const DateExtension = require ('@joi/date');
+const InvalidBody = require('../../../erros/InvalidBody');
 
 const Joi = JoiImport.extend(DateExtension);
 
@@ -13,7 +14,7 @@ module.exports = async (req,res,next) =>{
     });
     /*  */
     const {error} = await employeeschema.validate(req.body,{abortEarl:true});
-    if(error) throw error;
+    if(error) throw new InvalidBody(error);
     return next();
   } catch (error) {
     return res.status(400).json({

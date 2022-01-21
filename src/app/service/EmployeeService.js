@@ -1,4 +1,6 @@
 const EmployeeRepository = require('../repository/EmployeeRepository');
+const NotFound = require('../../erros/NotFound')
+const InvalidBody = require('../../erros/InvalidBody')
 
 class EmployeeService {
   async create(payload) {
@@ -19,6 +21,10 @@ class EmployeeService {
       data = await EmployeeRepository.find(obj);
     }
     const newData = data.map(employee => this.formatCPF(employee));
+
+    if(newData.length === 0){
+      throw new NotFound('Employee')
+    }
 
     return newData;
   }
@@ -60,6 +66,19 @@ class EmployeeService {
     const cpf = data.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     const employee = Object.assign(data, { cpf: cpf });
     return employee;
+  }
+
+  errorCodes(erro){
+      let status = 500
+      if(erro instanceof NotFound){
+        status = 404
+      }
+      if(erro instanceof InvalidBody){
+        status = 400
+      }
+  
+      return status
+    
   }
 }
 

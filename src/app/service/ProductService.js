@@ -1,4 +1,5 @@
 const ProductRepository = require('../repository/ProductRepository');
+const NotFound = require('../../erros/NotFound')
 
 class ProductService {
   async create(payload) {
@@ -16,6 +17,9 @@ class ProductService {
       const ObjCategory = this.validateCategory(category);
       const obj = Object.assign({},ObjName,ObjCategory);
       data = await ProductRepository.find(obj);
+    }
+    if(data.length === 0){
+      throw new NotFound('Product')
     }
     
     return data;
