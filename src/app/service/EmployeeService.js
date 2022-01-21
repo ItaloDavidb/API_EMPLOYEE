@@ -1,11 +1,10 @@
 const EmployeeRepository = require('../repository/EmployeeRepository');
-const moment = require('moment');
 
 class EmployeeService {
   async create(payload) {
     const data = await EmployeeRepository.create(payload);
     const cpf = this.formatCPF(data.cpf);
-    const employee = Object.assign(data, { cpf: cpf }, { birthday: birthday });
+    const employee = Object.assign(data, { cpf: cpf });
     return employee;
   }
 
