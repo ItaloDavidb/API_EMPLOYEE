@@ -21,11 +21,14 @@
   },
   "homepage": "https://github.com/ItaloDavidb/API_EMPLOYEE#readme",
   "dependencies": {
+    "@hapi/joi-date": "^2.0.1",
+    "@joi/date": "^2.1.0",
     "cors": "^2.8.5",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "joi": "^17.5.0",
     "mongoose": "^6.1.7",
+    "paginate-info": "^1.0.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

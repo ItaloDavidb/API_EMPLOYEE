@@ -14,7 +14,7 @@ const EmployeeSchema = mongoose.Schema({
     type:String,
     enum:['gerente','vendedor','caixa']
   },
-  birthday:Date,
+  birthday: String,
   situation: {
     type: String,
     enum : ['activate','deactivate'],
