@@ -18,8 +18,9 @@ class EmployeeService {
       const obj = Object.assign({}, ObjName, ObjOffice);
       data = await EmployeeRepository.find(obj);
     }
+    const newData = data.map(employee => this.formatCPF(employee));
 
-    return data;
+    return newData;
   }
   validateOffice(offices) {
     if (typeof offices === 'undefined') {
