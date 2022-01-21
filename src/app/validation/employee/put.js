@@ -1,6 +1,6 @@
 const JoiImport = require('joi');
 const DateExtension = require ('@joi/date');
-const InvalidBody = require('../../../erros/InvalidBody')
+const InvalidBody = require('../../../erros/InvalidBody');
 
 const Joi = JoiImport.extend(DateExtension);
 
