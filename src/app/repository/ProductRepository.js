@@ -10,7 +10,7 @@ class ProductRepository {
   }
 
   async find(payload){
-    return ProductSchema.find(payload);
+    return ProductSchema.find(payload,'-_id product_id name category price employee_id');
   }
 
 }
