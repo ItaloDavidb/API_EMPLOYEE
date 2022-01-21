@@ -3,8 +3,7 @@ const EmployeeRepository = require('../repository/EmployeeRepository');
 class EmployeeService {
   async create(payload) {
     const data = await EmployeeRepository.create(payload);
-    const cpf = this.formatCPF(data.cpf);
-    const employee = Object.assign(data, { cpf: cpf });
+    const employee = this.formatCPF(data);
     return employee;
   }
 
@@ -44,8 +43,7 @@ class EmployeeService {
 
   async update(id, payload) {
     const data = await EmployeeRepository.update(id, payload);
-    const cpf = this.formatCPF(data.cpf);
-    const employee = Object.assign(data, { cpf: cpf });
+    const employee = this.formatCPF(data);
     return employee;
   }
 
@@ -57,9 +55,10 @@ class EmployeeService {
     return EmployeeRepository.findId(id);
   }
 
-  formatCPF(cpf) {
-    const cpfFormatted = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-    return cpfFormatted;
+  formatCPF(data) {
+    const cpf = data.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    const employee = Object.assign(data, { cpf: cpf });
+    return employee;
   }
 }
 
