@@ -1,8 +1,14 @@
 const ProductRepository = require('../repository/ProductRepository');
-const NotFound = require('../../erros/NotFound')
+const EmployeeRepository = require('../repository/EmployeeRepository');
+const NotFound = require('../../erros/NotFound');
 
 class ProductService {
   async create(payload) {
+    const employeeId = payload.employee_id;
+    const employee = await EmployeeRepository.findId(employeeId);
+    if(employee.office !== 'gerente' || employee.situation !== 'activate') {
+      throw new Error('Product can only be registered by an active manager');
+    }
     const data = await ProductRepository.create(payload);
     return data;
   }
