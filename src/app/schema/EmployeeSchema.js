@@ -9,7 +9,9 @@ const EmployeeSchema = mongoose.Schema({
     mongoose:mongoose.ObjectId 
   },
   name: String,
-  cpf: String,
+  cpf: {
+    type:String,
+    unique:true},
   office:{
     type:String,
     enum:['gerente','vendedor','caixa']
