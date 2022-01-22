@@ -31,7 +31,8 @@
 ### Pré-requisitos ❗️
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[MongoDB](https://www.mongodb.com), [Node.js](https://nodejs.org/en/) e pode ser utilizado o [Postman](https://www.postman.com) para testar as rotas.
+[MongoDB](https://www.mongodb.com), [Node.js](https://nodejs.org/en/) e pode ser utilizado o [Postman](https://www.postman.com) para testar as rotas,
+não esquecer de criar a pasta ".env' seguindo o exemp.
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 🎲 Rodando o Back End (servidor)
@@ -53,6 +54,8 @@ $ npm start
 ```
 ### 📝 Teste de rotas
 
+> Sugestões para testar as rotas
+
 ### REQUEST - (POST)
 > Para cadastrar funcionarios.
 
@@ -67,9 +70,6 @@ $ npm start
 }
 ```
 
-<p align="center">
-<img width="900" src ="">
-</p>
 
 ### REQUEST - (GET)
 
@@ -88,10 +88,6 @@ $ npm start
 
 ```
 
-<p align="center">
-<img width="900" src ="">
-</p>
-
 
 ### REQUEST - (PUT)
 
@@ -101,15 +97,17 @@ $ npm start
 
 ```json
 {
-     "name": "Dona Maria",
-     "situation": "deactivate"
+ 
+"name": "maria da roberta",
+"office": "funcionario",
+"situation": "deactivate"
+
+
 }
 ```
 > Situation só pode ser deactivate ou activate
 
-<p align="center">
-<img width="900" src ="">
-</p>
+
 
 ### REQUEST - (DELETE)
 
@@ -117,18 +115,22 @@ $ npm start
 
 > DELETE - ` http://localhost:3000/api/v1/employee/:employee_id`
 
-<p align="center">
-<img width="900" src ="">
-</p>
+
 
 ### REQUEST - (POST) 
 > Para cadastrar um produto.
 
 > Use: POST - ` http://localhost:3000/api/v1/product`
 
-<p align="center">
-<img width="900" src ="">
-</p><br>
+```json
+{
+"name": "notebook dell",
+"category": "eletronico",
+"price": "12.32",
+"employee_id": "a99e8bf7-fa32-4ae7-8b53-5e00b9d43621"
+}
+```
+
 
 >Apenas Gerente ativo pode cadastrar um novo Produto
 
@@ -137,11 +139,15 @@ $ npm start
 
 > Use: GET - ` http://localhost:3000/api/v1/product`
 
-<p align="center">
-<img width="900" src ="">
-</p>
-
-
+```json
+{
+"employee_id": "a99e8bf7-fa32-4ae7-8b53-5e00b9d43621",
+"category": "eletronico",
+"name": "dell",
+"min_price": 10.5,
+"max_price":50
+}
+```
 
 ### 🛠 Tecnologias
 
@@ -179,7 +185,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 P.O | [Felipe Silva]()
 Scrum Master|[Matheus Moraes](https://www.linkedin.com/in/matheus-moraes-ba9020209/)
 Deployer|[Rafael Tomás](https://www.linkedin.com/in/rafael-tomas-30b9671a9/)
-QA|[Pedro Menezes]()
+QA|[Pedro Menezes](https://github.com/pedrohmenezes1)
 Code review|[Adson Souza](https://www.linkedin.com/in/adson-sousa-de-oliveira-5311a3207/)
 Code review|[Italo Alves](https://www.linkedin.com/in/italo-alves-01457a1a6/)
 
