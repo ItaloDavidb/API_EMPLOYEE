@@ -1,19 +1,23 @@
 const mongoose = require('mongoose');
-const uuid = require('node-uuid');
+const uuid = require('uuid');
 
 const EmployeeSchema = mongoose.Schema({
   employee_id: { 
     type: String, 
-    default: uuid.v1,
-    index:true 
+    default: uuid.v4,
+    index:true,
+    mongoose:mongoose.ObjectId 
   },
   name: String,
-  cpf: String,
+  cpf: {
+    type:String,
+    unique:true
+  },
   office:{
     type:String,
     enum:['gerente','vendedor','caixa']
   },
-  birthday:Date,
+  birthday: String,
   situation: {
     type: String,
     enum : ['activate','deactivate'],
