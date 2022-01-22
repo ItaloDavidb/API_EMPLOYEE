@@ -4,6 +4,11 @@ const InvalidBody = require('../../erros/InvalidBody');
 
 class EmployeeService {
   async create(payload) {
+    const Cpfvalidate = await EmployeeRepository.find({cpf:payload.cpf})
+    console.log(Cpfvalidate);
+    if(Cpfvalidate.length > 0){
+      throw new Error('Cpf already exists')
+    }
     const data = await EmployeeRepository.create(payload);
     const employee = this.formatCPF(data);
     return employee;
