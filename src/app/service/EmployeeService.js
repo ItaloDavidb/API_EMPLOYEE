@@ -1,6 +1,6 @@
 const EmployeeRepository = require('../repository/EmployeeRepository');
-const NotFound = require('../../erros/NotFound')
-const InvalidBody = require('../../erros/InvalidBody')
+const NotFound = require('../../erros/NotFound');
+const InvalidBody = require('../../erros/InvalidBody');
 
 class EmployeeService {
   async create(payload) {
@@ -23,7 +23,7 @@ class EmployeeService {
     const newData = data.map(employee => this.formatCPF(employee));
 
     if(newData.length === 0){
-      throw new NotFound('Employee')
+      throw new NotFound('Employee');
     }
 
     return newData;
@@ -69,15 +69,15 @@ class EmployeeService {
   }
 
   errorCodes(erro){
-      let status = 500
-      if(erro instanceof NotFound){
-        status = 404
-      }
-      if(erro instanceof InvalidBody){
-        status = 400
-      }
+    let status = 500;
+    if(erro instanceof NotFound){
+      status = 404;
+    }
+    if(erro instanceof InvalidBody){
+      status = 400;
+    }
   
-      return status
+    return status;
     
   }
 }

@@ -5,7 +5,7 @@ module.exports = async (req,res,next) =>{
   try {
     const productschema = Joi.object({
       name: Joi.string().required().trim(),
-      category:Joi.string().required().valid('eletronico'),
+      category:Joi.string().required(),
       price: Joi.number().required(),
       employee_id: Joi.string().required().guid({version: 'uuidv4'})
     });

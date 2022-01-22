@@ -11,7 +11,8 @@ const EmployeeSchema = mongoose.Schema({
   name: String,
   cpf: {
     type:String,
-    unique:true},
+    unique:true
+  },
   office:{
     type:String,
     enum:['gerente','vendedor','caixa']

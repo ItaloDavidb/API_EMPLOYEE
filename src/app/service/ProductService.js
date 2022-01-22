@@ -1,14 +1,19 @@
 const ProductRepository = require('../repository/ProductRepository');
 const EmployeeRepository = require('../repository/EmployeeRepository');
 const NotFound = require('../../erros/NotFound');
+const invalidbody = require('../../erros/InvalidBody');
 
 class ProductService {
   async create(payload) {
     const employeeId = payload.employee_id;
     const employee = await EmployeeRepository.findId(employeeId);
+    if( employee === null) {
+      throw new invalidbody('invalid employee_id');
+    }
     if(employee.office !== 'gerente' || employee.situation !== 'activate') {
       throw new Error('Product can only be registered by an active manager');
     }
+    
     const data = await ProductRepository.create(payload);
     return data;
   }
@@ -19,32 +24,32 @@ class ProductService {
       data = await ProductRepository.findall();
     }else{
 
-      const price = this.validatePrice(min_price,max_price)
-      const ObjEmployee_id = this.validateEmployee_id(employee_id)
+      const price = this.validatePrice(min_price,max_price);
+      const ObjEmployee_id = this.validateEmployee_id(employee_id);
       const ObjName = this.validateName(names);
       const ObjCategory = this.validateCategory(category);
       const obj = Object.assign({},ObjName,ObjCategory,ObjEmployee_id,price);
       data = await ProductRepository.find(obj);
     }
     if(data.length === 0){
-      throw new NotFound('Product')
+      throw new NotFound('Product');
     }
     
     return data;
   }
 
   validatePrice(min_price,max_price){
-    let min = 0
-    let max = 9999999999
+    let min = 0;
+    let max = 9999999999;
     if(typeof min_price !== 'undefined'){
-      min = min_price 
+      min = min_price; 
     }
     if(typeof max_price !== 'undefined'){
-      max = max_price
+      max = max_price;
     }
     
-    const min_max = {price : {$gte:min ,$lte:max}}
-    return min_max
+    const min_max = {price : {$gte:min ,$lte:max}};
+    return min_max;
   }
 
   validateEmployee_id(employee_id){
